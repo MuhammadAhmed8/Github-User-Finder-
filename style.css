@@ -1,0 +1,177 @@
+html,body{
+    height: 100vh;
+    background: radial-gradient(circle,rgb(255, 255, 255),rgb(184, 184, 184));
+    overflow-x:hidden;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bg1 
+{
+  background-image: url("not-found.jpg");
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+ 
+}
+
+#searchpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    
+  }
+  /*.box>*:first-child,:nth-child(2) {
+      align-self: center;
+  }*/
+  
+  h1{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  form{
+      width: 50vw;
+     display: flex;
+     flex-direction: column;
+     margin-top: 1em; 
+  }
+
+  input{
+      padding: 0.2em;
+      text-align: center;
+  }
+  input:focus{
+     outline-color:black;
+      
+  }
+
+  .profile{
+   
+    background-color: aliceblue;
+    width: 30%;
+    height: 90%;
+
+  }
+  .top{
+    height: 50%;
+    background:whitesmoke;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center; 
+    justify-content:center;
+
+  }
+
+  .pic{
+    width: 150px;
+    height: 150px;
+    
+  }
+
+  .middle{
+      height: 8%;
+      width: 100%;
+    
+    display: flex;
+  }
+
+  .social{
+      flex:33.3%;
+      width: 33.33%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: azure;
+      font-size: 12px;
+      background-color: dodgerblue;
+      border: 1px solid #fff;
+
+      
+  }
+
+  .below{
+    height:42%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .below > div{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+
+  }
+
+  .down{
+      height: 80%;
+  }
+  
+
+  .blue{
+      border-top:2px outset dodgerblue ;
+      height: 20%;
+  }
+  .green{
+    background-color: seagreen;
+}
+
+@media (max-width:950px){
+    
+    .profile{
+        width: 50%;
+        height: auto;
+    
+      }
+}
+  @media (max-width:768px){
+    form{
+        width: 70%;
+    }
+    #searchimage>img{
+        width: 50% 
+    }
+
+    .profile{
+        width: 95%;
+        height: auto;
+    
+      }
+}
+
+@media (max-width:450px){
+    form{
+        width: 90%;
+    }
+    #searchimage>img{
+        width: 60% 
+    }
+ 
+    .profile{
+        width: 95%;
+        height: auto;
+    
+      }
+}
+
+.border{
+    border: 10px solid black ;
+   
+}
+.white{
+    background-color: whitesmoke
+}
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+<div  id="searchpage">
+ <img src="logo.png" width="30%">
+ <h1>GitHub Finder</h1>
+ <form  action="JavaScript:void(0)" method="post" onsubmit="search()" id="searchForm" >
+ <input id="name" type="text" name="name" required="required" placeholder="Search Here">
+ <button type="submit" class="btn btn-secondary">Find</button>
+</form>
+</div>
+
+<div class="loaderContainer" id="loader">
+    <div class="loader"></div>
+</div>
+
+<div id="maindiv" class="d-none h-100 w-100 justify-content-center align-items-center">
+   
+    <div  class=" white profile">
+        <div class="top">
+            <div class="pic">
+                <img src="" id="avator" width="100%" height="100%">
+            </div>
+
+            
+            <h4 id="fullname" class="name"></h4>
+            <p id="username" class="text-muted"></p>
+           
+        </div>
+       
+            
+       <div class="middle" >
+          <div class="social" id="follower"></div>
+          <div class="social" id="following"></div>
+          <div class="social" id="repos"></div>
+       </div>
+
+       <div class="below">
+           <div class="down"></div>
+           <div class="blue btn badge-primary "><a id="view" href="" style="text-decoration:none;text-align: center;color: azure">View Profile</a></div>
+
+       </div>
+
+        
+        
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+   
+</body>
+<script>
+function search(){
+    console.log("asasas");
+    $("#searchpage").fadeOut(1000);
+    const baseUrl = 'https://api.github.com/users/';
+    let userId =document.getElementById("name").value;
+    let userurl = baseUrl + userId;
+    if (userId !== "" && userId !== null) {
+        $.ajax({url:userurl, type:"GET",
+            success:(data) => {
+            
+
+            console.log("hello",data);
+           
+            //document.getElementById("loader").style.display = "none";
+            let mainDiv = $("#maindiv");
+            mainDiv.addClass("d-flex");
+            mainDiv.removeClass("d-none");
+            document.getElementById("avator").src = data.avatar_url;
+            document.getElementById("fullname").innerText = data.name;
+            document.getElementById("username").innerText = data.login;
+            document.getElementById("repos").innerText = "Repositories "+data.public_repos;
+            document.getElementById("follower").innerText ="Followers "+data.followers;
+            document.getElementById("following").innerText = "Following "+data.following;
+            document.getElementById("view").href = data.html_url;
+        },
+
+        error: (err)=>{
+            console.log("errrr")
+            $("body").addClass('bg1');;
+        }
+            
+    
+    
+    })
+    }
+}
+</script>
+</html>
